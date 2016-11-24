@@ -1,0 +1,14 @@
+spring:
+    application:
+        exchange: product.events.fanout.exchange
+        queue: product.default.queue
+        databaseName: products
+        eventsCollectionName: events
+        snapshotCollectionName: snapshots
+    rabbitmq:
+        hostname: localhost
+        username: test
+        password: password
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/products
