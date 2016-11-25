@@ -118,7 +118,7 @@ public class AxonConfiguration {
 
   @Bean
   EventSourcingRepository<EmployeeAggreate> employeeEventSourcingRepository() {
-    EventSourcingRepository<EmployeeAggreate> repo = new EventSourcingRepository<EmployeeAggreate>(EmployeeAggreate.class, eventStore());
+    EventSourcingRepository<EmployeeAggreate> repo = new EventSourcingRepository<>(EmployeeAggreate.class, eventStore());
     repo.setEventBus(eventBus());
     return repo;
   }

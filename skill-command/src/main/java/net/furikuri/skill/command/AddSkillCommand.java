@@ -6,16 +6,16 @@ import org.axonframework.commandhandling.annotation.TargetAggregateIdentifier;
 public class AddSkillCommand {
 
   @TargetAggregateIdentifier
-  private final String id;
+  private final String employeeId;
   private final String skill;
 
-  public AddSkillCommand(String id, String skill) {
-    this.id = id;
+  public AddSkillCommand(String employeeId, String skill) {
+    this.employeeId = employeeId;
     this.skill = skill;
   }
 
-  public String getId() {
-    return id;
+  public String getEmployeeId() {
+    return employeeId;
   }
 
   public String getSkill() {

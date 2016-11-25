@@ -3,19 +3,19 @@ package net.furikuri.skill.event;
 import java.io.Serializable;
 
 public class SkillAddedEvent implements Serializable {
-  private String id;
+  private String employeeId;
   private String name;
 
   public SkillAddedEvent() {
   }
 
-  public SkillAddedEvent(String id, String name) {
-    this.id = id;
+  public SkillAddedEvent(String employeeId, String name) {
+    this.employeeId = employeeId;
     this.name = name;
   }
 
-  public String getId() {
-    return id;
+  public String getEmployeeId() {
+    return employeeId;
   }
 
   public String getName() {
