@@ -2,9 +2,6 @@ package net.furikuri.skill.event;
 
 import java.io.Serializable;
 
-/**
- * Created by theo on 25.11.16.
- */
 public class SkillAddedEvent implements Serializable {
   private String id;
   private String name;
