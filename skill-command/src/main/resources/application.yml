@@ -1,8 +1,8 @@
 spring:
     application:
-        exchange: product.events.fanout.exchange
-        queue: product.default.queue
-        databaseName: products
+        exchange: employee.events.fanout.exchange
+        queue: employee.default.queue
+        databaseName: employees
         eventsCollectionName: events
         snapshotCollectionName: snapshots
     rabbitmq:
@@ -11,4 +11,4 @@ spring:
         password: password
     data:
         mongodb:
-            uri: mongodb://localhost:27017/products
+            uri: mongodb://localhost:27017/employees
