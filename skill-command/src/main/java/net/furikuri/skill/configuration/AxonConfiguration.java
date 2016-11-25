@@ -30,7 +30,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 @AnnotationDriven
 public class AxonConfiguration {
@@ -109,8 +108,7 @@ public class AxonConfiguration {
 
   @Bean(name = "axonMongoTemplate")
   MongoTemplate axonMongoTemplate() {
-    return new DefaultMongoTemplate(mongo,
-        databaseName, eventsCollectionName, snapshotCollectionName);
+    return new DefaultMongoTemplate(mongo, databaseName, eventsCollectionName, snapshotCollectionName);
   }
 
   @Bean
@@ -119,7 +117,7 @@ public class AxonConfiguration {
   }
 
   @Bean
-  EventSourcingRepository<EmployeeAggreate> productEventSourcingRepository() {
+  EventSourcingRepository<EmployeeAggreate> employeeEventSourcingRepository() {
     EventSourcingRepository<EmployeeAggreate> repo = new EventSourcingRepository<EmployeeAggreate>(EmployeeAggreate.class, eventStore());
     repo.setEventBus(eventBus());
     return repo;
@@ -152,15 +150,9 @@ public class AxonConfiguration {
   }
 
   @Bean
-  AggregateAnnotationCommandHandler<EmployeeAggreate> productAggregateCommandHandler() {
-    AggregateAnnotationCommandHandler<EmployeeAggreate> handler = new AggregateAnnotationCommandHandler<>(
-        EmployeeAggreate.class,
-        productEventSourcingRepository()
-    );
-    AggregateAnnotationCommandHandler.subscribe(EmployeeAggreate.class,
-        productEventSourcingRepository(), commandBus());
-//    commandBus().subscribe("net.furikuri.skill.command.AddSkillCommand", handler);
-    return handler;
+  AggregateAnnotationCommandHandler employeeAggregateCommandHandler() {
+    return AggregateAnnotationCommandHandler.subscribe(EmployeeAggreate.class,
+        employeeEventSourcingRepository(), commandBus());
   }
 
 }
