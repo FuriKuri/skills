@@ -3,7 +3,7 @@ package net.furikuri.skill.configuration;
 
 import com.mongodb.MongoClient;
 
-import net.furikuri.skill.aggregate.EmployeeAggreate;
+import net.furikuri.skill.aggregate.EmployeeAggregate;
 
 import org.axonframework.commandhandling.CommandBus;
 import org.axonframework.commandhandling.SimpleCommandBus;
@@ -117,8 +117,8 @@ public class AxonConfiguration {
   }
 
   @Bean
-  EventSourcingRepository<EmployeeAggreate> employeeEventSourcingRepository() {
-    EventSourcingRepository<EmployeeAggreate> repo = new EventSourcingRepository<>(EmployeeAggreate.class, eventStore());
+  EventSourcingRepository<EmployeeAggregate> employeeEventSourcingRepository() {
+    EventSourcingRepository<EmployeeAggregate> repo = new EventSourcingRepository<>(EmployeeAggregate.class, eventStore());
     repo.setEventBus(eventBus());
     return repo;
   }
@@ -151,7 +151,7 @@ public class AxonConfiguration {
 
   @Bean
   AggregateAnnotationCommandHandler employeeAggregateCommandHandler() {
-    return AggregateAnnotationCommandHandler.subscribe(EmployeeAggreate.class,
+    return AggregateAnnotationCommandHandler.subscribe(EmployeeAggregate.class,
         employeeEventSourcingRepository(), commandBus());
   }
 
