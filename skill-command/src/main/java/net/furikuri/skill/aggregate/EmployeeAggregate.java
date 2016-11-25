@@ -1,12 +1,11 @@
 package net.furikuri.skill.aggregate;
 
-import net.furikuri.skill.command.AddEmployeeCommand;
 import net.furikuri.skill.command.AddSkillCommand;
 import net.furikuri.skill.command.DeleteSkillCommand;
 import net.furikuri.skill.event.EmployeeAddedEvent;
+import net.furikuri.skill.event.NameChangedEvent;
 import net.furikuri.skill.event.SkillAddedEvent;
 import net.furikuri.skill.event.SkillDeletedEvent;
-import org.axonframework.commandhandling.annotation.CommandHandler;
 import org.axonframework.eventsourcing.annotation.AbstractAnnotatedAggregateRoot;
 import org.axonframework.eventsourcing.annotation.AggregateIdentifier;
 import org.axonframework.eventsourcing.annotation.EventSourcingHandler;
@@ -24,19 +23,20 @@ public class EmployeeAggregate extends AbstractAnnotatedAggregateRoot {
   public EmployeeAggregate() {
   }
 
-  @CommandHandler
-  public EmployeeAggregate(AddEmployeeCommand command) {
-    apply(new EmployeeAddedEvent(command.getId(), command.getFirstName(), command.getLastName()));
+  EmployeeAggregate(String id, String firstName, String lastName) {
+    apply(new EmployeeAddedEvent(id, firstName, lastName));
   }
 
-  @CommandHandler
-  public void addSkill(AddSkillCommand command) {
-    apply(new SkillAddedEvent(command.getEmployeeId(), command.getSkill()));
+  public void addSkill(String skill) {
+    apply(new SkillAddedEvent(id, skill));
   }
 
-  @CommandHandler
-  public void deleteSkill(DeleteSkillCommand command) {
-    apply(new SkillDeletedEvent(command.getEmployeeId(), command.getSkill()));
+  public void deleteSkill(String skill) {
+    apply(new SkillDeletedEvent(id, skill));
+  }
+
+  public void updateName(String firstName, String lastName) {
+    apply(new NameChangedEvent(id, firstName, lastName));
   }
 
   @EventSourcingHandler
@@ -54,5 +54,11 @@ public class EmployeeAggregate extends AbstractAnnotatedAggregateRoot {
   @EventSourcingHandler
   public void on(DeleteSkillCommand event) {
     skills.add(event.getSkill());
+  }
+
+  @EventSourcingHandler
+  public void on(NameChangedEvent event) {
+    this.firstName = event.getFirstName();
+    this.lastName = event.getLastName();
   }
 }

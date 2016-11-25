@@ -1,11 +1,22 @@
 package net.furikuri.skill.controller;
 
 class Employee {
-  final String firstName;
-  final String lastName;
+  public String firstName;
+  public String lastName;
 
-  Employee(String firstName, String lastName) {
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
     this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 }
