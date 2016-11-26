@@ -3,6 +3,9 @@ package net.furikuri.skill.handler;
 
 import net.furikuri.skill.domain.Employee;
 import net.furikuri.skill.event.EmployeeAddedEvent;
+import net.furikuri.skill.event.NameChangedEvent;
+import net.furikuri.skill.event.SkillAddedEvent;
+import net.furikuri.skill.event.SkillDeletedEvent;
 import net.furikuri.skill.repository.EmployeeRepository;
 
 import org.axonframework.eventhandling.annotation.EventHandler;
@@ -21,8 +24,29 @@ public class EmployeeEventHandler implements ReplayAware {
 
   @EventHandler
   public void handle(EmployeeAddedEvent event) {
-    LOG.info("EmployeeAddedEvent: [{}]", event.getId());
     repository.save(new Employee(event.getId(), event.getFirstName(), event.getLastName()));
+  }
+
+  @EventHandler
+  public void handle(SkillAddedEvent event) {
+    Employee employee = repository.findOne(event.getEmployeeId());
+    employee.addSkill(event.getSkill());
+    repository.save(employee);
+  }
+
+  @EventHandler
+  public void handle(SkillDeletedEvent event) {
+    Employee employee = repository.findOne(event.getEmployeeId());
+    employee.removeSkill(event.getSkill());
+    repository.save(employee);
+  }
+
+  @EventHandler
+  public void handle(NameChangedEvent event) {
+    Employee employee = repository.findOne(event.getEmployeeId());
+    employee.setFirstName(event.getFirstName());
+    employee.setFirstName(event.getLastName());
+    repository.save(employee);
   }
 
   @Override
