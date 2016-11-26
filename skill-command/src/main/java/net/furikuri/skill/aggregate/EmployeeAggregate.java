@@ -1,11 +1,10 @@
 package net.furikuri.skill.aggregate;
 
-import net.furikuri.skill.command.AddSkillCommand;
-import net.furikuri.skill.command.DeleteSkillCommand;
 import net.furikuri.skill.event.EmployeeAddedEvent;
 import net.furikuri.skill.event.NameChangedEvent;
 import net.furikuri.skill.event.SkillAddedEvent;
 import net.furikuri.skill.event.SkillDeletedEvent;
+
 import org.axonframework.eventsourcing.annotation.AbstractAnnotatedAggregateRoot;
 import org.axonframework.eventsourcing.annotation.AggregateIdentifier;
 import org.axonframework.eventsourcing.annotation.EventSourcingHandler;
@@ -47,12 +46,12 @@ public class EmployeeAggregate extends AbstractAnnotatedAggregateRoot {
   }
 
   @EventSourcingHandler
-  public void on(AddSkillCommand event) {
+  public void on(SkillAddedEvent event) {
     skills.add(event.getSkill());
   }
 
   @EventSourcingHandler
-  public void on(DeleteSkillCommand event) {
+  public void on(SkillDeletedEvent event) {
     skills.remove(event.getSkill());
   }
 
