@@ -23,9 +23,6 @@ class AxonConfiguration {
   @Autowired
   public ConnectionFactory connectionFactory;
 
-//  @Autowired
-//  public PlatformTransactionManager transactionManager;
-
   @Autowired
   public String uniqueQueueName;
 
