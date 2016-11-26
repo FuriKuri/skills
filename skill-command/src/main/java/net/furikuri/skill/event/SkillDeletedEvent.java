@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 public class SkillDeletedEvent implements Serializable {
   private String employeeId;
-  private String name;
+  private String skill;
 
   public SkillDeletedEvent() {
   }
 
-  public SkillDeletedEvent(String employeeId, String name) {
+  public SkillDeletedEvent(String employeeId, String skill) {
     this.employeeId = employeeId;
-    this.name = name;
+    this.skill = skill;
   }
 
   public String getEmployeeId() {
     return employeeId;
   }
 
-  public String getName() {
-    return name;
+  public String getSkill() {
+    return skill;
   }
 }
