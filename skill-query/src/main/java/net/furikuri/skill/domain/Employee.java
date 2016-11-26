@@ -64,4 +64,12 @@ public class Employee {
   public void setSkills(Set<String> skills) {
     this.skills = skills;
   }
+
+  public void addSkill(String skill) {
+    getSkills().add(skill);
+  }
+
+  public void removeSkill(String skill) {
+    getSkills().remove(skill);
+  }
 }
