@@ -53,7 +53,7 @@ public class EmployeeAggregate extends AbstractAnnotatedAggregateRoot {
 
   @EventSourcingHandler
   public void on(DeleteSkillCommand event) {
-    skills.add(event.getSkill());
+    skills.remove(event.getSkill());
   }
 
   @EventSourcingHandler
