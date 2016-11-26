@@ -1,0 +1,17 @@
+
+spring:
+    application:
+        name: employee-query
+        index: ${random.int[1024,4096]}
+        exchange: employee.events.fanout.exchange
+        queue: employee.default.queue
+        terminal: employee.axon.terminal
+    rabbitmq:
+        hostname: localhost
+        username: test
+        password: password
+
+spring.data.elasticsearch.cluster-nodes: localhost:9300
+
+server:
+  port: 8081
