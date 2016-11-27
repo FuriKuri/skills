@@ -1,1 +1,1 @@
-include "skill-command", "skill-query"
+include "authentication", "skill-command", "skill-query"

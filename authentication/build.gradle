@@ -1,0 +1,26 @@
+buildscript {
+  ext {
+    springBootVersion = '1.4.2.RELEASE'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+  baseName = 'authentication'
+  version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+  compile('org.springframework.boot:spring-boot-starter-actuator')
+  compile('org.springframework.boot:spring-boot-starter-web')
+  compile('com.auth0:java-jwt:2.2.1')
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+}
