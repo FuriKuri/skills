@@ -7,6 +7,6 @@ insert_final_newline = true
 [*.{java,gradle,yml}]
 charset = utf-8
 
-[*.java]
+[*.{java,gradle,yml,vcl}]
 indent_style = space
 indent_size = 2
