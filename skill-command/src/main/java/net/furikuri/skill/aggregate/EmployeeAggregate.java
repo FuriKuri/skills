@@ -2,8 +2,8 @@ package net.furikuri.skill.aggregate;
 
 import net.furikuri.skill.event.EmployeeAddedEvent;
 import net.furikuri.skill.event.NameChangedEvent;
-import net.furikuri.skill.event.SkillAddedEvent;
 import net.furikuri.skill.event.SkillDeletedEvent;
+import net.furikuri.skill.event.SkillAddedEvent;
 
 import org.axonframework.eventsourcing.annotation.AbstractAnnotatedAggregateRoot;
 import org.axonframework.eventsourcing.annotation.AggregateIdentifier;

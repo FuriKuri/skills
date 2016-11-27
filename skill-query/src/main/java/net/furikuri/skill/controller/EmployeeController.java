@@ -1,7 +1,7 @@
 package net.furikuri.skill.controller;
 
-import net.furikuri.skill.domain.Employee;
 import net.furikuri.skill.repository.EmployeeRepository;
+import net.furikuri.skill.domain.Employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

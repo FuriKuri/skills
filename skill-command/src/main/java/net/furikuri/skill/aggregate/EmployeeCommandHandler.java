@@ -1,8 +1,9 @@
 package net.furikuri.skill.aggregate;
 
+import net.furikuri.skill.command.DeleteSkillCommand;
 import net.furikuri.skill.command.AddEmployeeCommand;
 import net.furikuri.skill.command.AddSkillCommand;
-import net.furikuri.skill.command.DeleteSkillCommand;
+
 import org.axonframework.commandhandling.annotation.CommandHandler;
 import org.axonframework.repository.AggregateNotFoundException;
 import org.axonframework.repository.Repository;
