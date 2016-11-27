@@ -6,9 +6,9 @@ spring:
         eventsCollectionName: events
         snapshotCollectionName: snapshots
     rabbitmq:
-        hostname: localhost
+        hostname: rabbitmq
         username: test
         password: password
     data:
         mongodb:
-            uri: mongodb://localhost:27017/employees
+            uri: mongodb://mongodb:27017/employees

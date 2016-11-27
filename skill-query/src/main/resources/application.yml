@@ -7,11 +7,8 @@ spring:
         queue: employee.default.queue
         terminal: employee.axon.terminal
     rabbitmq:
-        hostname: localhost
+        hostname: rabbitmq
         username: test
         password: password
 
-spring.data.elasticsearch.cluster-nodes: localhost:9300
-
-server:
-  port: 8081
+spring.data.elasticsearch.cluster-nodes: elasticsearch:9300
