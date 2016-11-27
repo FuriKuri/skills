@@ -1,5 +1,12 @@
 version: '2'
 services:
+  varnish:
+    build: ./varnish
+    ports:
+     - "8082:80"
+    depends_on:
+     - skill-query
+     - skill-command
   skill-command:
     build: ./skill-command
     ports:
