@@ -13,11 +13,9 @@ backend command_backend {
 sub vcl_recv {
   if (req.method == "GET") {
     set req.backend_hint = query_backend;
-    return(pipe);
   }
 
   if (req.method != "GET") {
     set req.backend_hint = command_backend;
-    return(pipe);
   }
 }
