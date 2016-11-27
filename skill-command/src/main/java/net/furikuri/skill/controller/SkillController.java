@@ -15,13 +15,13 @@ class SkillController {
   @Autowired
   CommandGateway commandGateway;
 
-  @RequestMapping(value = "/{employeeId}/{skill}", method = RequestMethod.PUT)
+  @RequestMapping(value = "/{employeeId}/skills/{skill}", method = RequestMethod.PUT)
   String addSkill(@PathVariable("employeeId") String id, @PathVariable("skill") String skill) {
     commandGateway.send(new AddSkillCommand(id, skill));
     return "ok";
   }
 
-  @RequestMapping(value = "/{employeeId}/{skill}", method = RequestMethod.DELETE)
+  @RequestMapping(value = "/{employeeId}/skills/{skill}", method = RequestMethod.DELETE)
   String deleteSkill(@PathVariable("employeeId") String id, @PathVariable("skill") String skill) {
     commandGateway.send(new DeleteSkillCommand(id, skill));
     return "ok";
