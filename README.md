@@ -1,5 +1,5 @@
 # skills
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/skills-app/Lobby)
+[![Gitter chat](http://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg?style=flat-square)](https://gitter.im/skills-app/Lobby)
 
 ## Usage
 
