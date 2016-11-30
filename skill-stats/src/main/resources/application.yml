@@ -9,3 +9,5 @@ spring:
         hostname: rabbitmq
         username: test
         password: password
+    redis:
+      host: redis
