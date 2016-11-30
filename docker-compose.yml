@@ -26,6 +26,12 @@ services:
     depends_on:
      - elasticsearch
      - rabbitmq
+  skill-stats:
+    build: ./skill-stats
+    ports:
+     - "8084:8080"
+    depends_on:
+     - rabbitmq
   elasticsearch:
     image: elasticsearch:2.4.0
     container_name: elasticsearch

@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: skill-stats
+        index: ${random.int[1024,4096]}
+        exchange: employee.events.fanout.exchange
+        queue: employee.default.queue
+        terminal: employee.axon.terminal
+    rabbitmq:
+        hostname: rabbitmq
+        username: test
+        password: password
