@@ -15,16 +15,16 @@ $ docker-compose up -d
 ### REST calls
 ```
 # Create/update an eomplyee
-curl -X "PUT" "http://localhost:8082/tpa" \
+curl -X "PUT" "http://localhost:8080/api/tpa" \
      -H "Content-Type: application/json" \
      -d "{\"firstName\":\"Theo\",\"lastName\":\"Pack\"}"
 
 # Add skill to an employee
-curl -X "PUT" "http://localhost:8082/tpa/skills/Java"
+curl -X "PUT" "http://localhost:8080/api/tpa/skills/Java"
 
 # Request employee
-curl -X "GET" "http://localhost:8082/tpa"
+curl -X "GET" "http://localhost:8080/api/tpa"
 
 # Search for a keyword
-curl -X "GET" "http://localhost:8082/search?q=Java"
+curl -X "GET" "http://localhost:8080/api/search?q=Java"
 ```
