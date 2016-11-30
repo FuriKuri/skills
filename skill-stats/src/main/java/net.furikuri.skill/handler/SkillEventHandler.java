@@ -17,7 +17,7 @@ public class SkillEventHandler implements ReplayAware {
   private static final Logger LOG = LoggerFactory.getLogger(SkillEventHandler.class);
 
   @Autowired
-  private RedisTemplate<String, String> redisClient;
+  private RedisTemplate<String, Integer> redisClient;
 
   @EventHandler
   public void handle(SkillAddedEvent event) {
